@@ -186,7 +186,7 @@ const ProfilePage = () => {
                                     return null;
                                 }}
                             >
-                                <Input placeholder="John Doe" />
+                                <Input placeholder="Update your name" />
                                 <FieldError />
                             </TextField>
                         </div>
