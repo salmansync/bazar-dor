@@ -195,7 +195,10 @@ const SignInPage = () => {
                         <div className="flex-1 h-0.5 bg-gray-200"></div>
                     </div>
 
-                    {/* Social Login */}
+
+
+                </Form>
+                                {/* Social Login */}
                     <div className="flex flex-col sm:flex-row gap-2 w-full">
 
                         <button
@@ -235,8 +238,6 @@ const SignInPage = () => {
                             সাইন আপ করুন
                         </Link>
                     </p>
-
-                </Form>
             </div>
 
             {/* Back to Home */}
