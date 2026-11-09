@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 import MarqueeText from "react-marquee-text"
-import "react-marquee-text/dist/styles.css"
+import "react-marquee-text/dist/styles.css";
 const Marquee = async () => {
     const fetchAllProducts = await fetch('https://api.api-store.workers.dev/api/bazardor/products')
     const products = await fetchAllProducts.json()
