@@ -30,6 +30,7 @@ const SignInPage = () => {
             });
 
             console.log('login data ', data, error);
+
             if (error) {
                 toast.error(error.message || "Login failed!", {
                     icon: "🚨",
@@ -52,8 +53,6 @@ const SignInPage = () => {
                 return;
             }
 
-            // toast.success("Login successful! Welcome back.");
-
             toast.success("সফলভাবে লগইন হয়েছে! আবারও আপনাকে স্বাগতম।", {
                 icon: "🎉",
                 duration: 5000,
@@ -71,6 +70,7 @@ const SignInPage = () => {
                     boxShadow: "0 12px 40px rgba(5, 150, 105, 0.45)",
                 },
             });
+
             setTimeout(() => {
                 router.push("/");
             }, 2000);
@@ -81,34 +81,38 @@ const SignInPage = () => {
         }
     };
 
-
     const loginWithGoogle = async () => {
         const data = await signIn.social({
             provider: 'google'
-        })
+        });
+
         console.log('google data is here ', data);
-    }
+    };
 
     const loginWithGitHub = async () => {
         const data = await signIn.social({
             provider: 'github'
-        })
-        console.log('github data is here ', data);
-    }
-    return (
-        <div className="max-w-7xl mx-auto my-10">
+        });
 
+        console.log('github data is here ', data);
+    };
+
+    return (
+        <div className="max-w-7xl mx-auto px-3 sm:px-5 md:px-6 my-6 sm:my-8 md:my-10">
+
+            {/* Heading */}
             <div className="flex flex-col items-center justify-center text-center">
-                <h1 className="text-3xl font-bold">
+                <h1 className="text-2xl sm:text-3xl font-bold">
                     সাইন ইন
                 </h1>
 
-                <p className="text-gray-500 mt-2">
+                <p className="text-gray-500 mt-2 text-sm sm:text-base max-w-xl">
                     বিস্তারিত দাম, বাজার তুলনা ও প্রোফাইল দেখতে অ্যাকাউন্টে ঢুকুন।
                 </p>
             </div>
 
-            <div className="flex flex-col items-center justify-center w-full max-w-xl mx-auto bg-white p-8 mt-5 mb-10 rounded-xl shadow-md">
+            {/* Sign In Card */}
+            <div className="flex flex-col items-center justify-center w-full max-w-xl mx-auto bg-white p-4 sm:p-6 md:p-8 mt-5 mb-8 sm:mb-10 rounded-xl shadow-md">
 
                 <Form className="flex w-full flex-col gap-4" onSubmit={onSubmit}>
 
@@ -117,6 +121,7 @@ const SignInPage = () => {
                         isRequired
                         name="email"
                         type="email"
+                        className="w-full"
                         validate={(value) => {
                             if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)) {
                                 return "Please enter a valid email address";
@@ -124,12 +129,12 @@ const SignInPage = () => {
                             return null;
                         }}
                     >
-                        <Label className='font-bold text-[15px]'>
+                        <Label className="font-bold text-sm sm:text-[15px]">
                             ইমেইল
                         </Label>
 
                         <Input
-                            className='rounded-md p-3 font-medium'
+                            className="w-full rounded-md p-3 font-medium"
                             placeholder="you@example.com"
                         />
 
@@ -142,6 +147,7 @@ const SignInPage = () => {
                         name="password"
                         type="password"
                         minLength={8}
+                        className="w-full"
                         validate={(value) => {
                             if (value.length < 8) {
                                 return "Password must be at least 8 characters";
@@ -158,12 +164,12 @@ const SignInPage = () => {
                             return null;
                         }}
                     >
-                        <Label className='font-bold text-[15px]'>
+                        <Label className="font-bold text-sm sm:text-[15px]">
                             পাসওয়ার্ড
                         </Label>
 
                         <Input
-                            className='rounded-md p-3 font-medium'
+                            className="w-full rounded-md p-3 font-medium"
                             placeholder="কমপক্ষে ৮ অক্ষর"
                         />
 
@@ -172,7 +178,7 @@ const SignInPage = () => {
 
                     {/* Submit Button */}
                     <Button
-                        className="w-full bg-green-700 rounded-md text-white disabled:opacity-100 disabled:bg-green-700"
+                        className="w-full bg-green-700 rounded-md text-white disabled:opacity-100 disabled:bg-green-700 text-sm sm:text-base"
                         type="submit"
                         isDisabled={loading}
                     >
@@ -180,10 +186,10 @@ const SignInPage = () => {
                     </Button>
 
                     {/* Divider */}
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-3 sm:gap-4 w-full">
                         <div className="flex-1 h-0.5 bg-gray-200"></div>
 
-                        <span className="text-gray-600 text-sm">
+                        <span className="text-gray-600 text-xs sm:text-sm">
                             অথবা
                         </span>
 
@@ -191,39 +197,41 @@ const SignInPage = () => {
                     </div>
 
                     {/* Social Login */}
-                    <div className="flex gap-2">
+                    <div className="flex flex-col sm:flex-row gap-2 w-full">
 
-                        <div
+                        <button
+                            type="button"
                             onClick={loginWithGoogle}
-                            className="w-full flex items-center gap-2 border border-gray-300 shadow p-3 rounded-md">
+                            className="w-full flex items-center justify-center gap-2 border border-gray-300 shadow p-3 rounded-md hover:bg-gray-50 transition"
+                        >
                             <FcGoogle size={22} />
 
-                            <p
-
-                                className='text-black font-bold'>
+                            <span className="text-black font-bold text-sm sm:text-base">
                                 Google দিয়ে চালিয়ে যান
-                            </p>
-                        </div>
+                            </span>
+                        </button>
 
-                        <div
+                        <button
+                            type="button"
                             onClick={loginWithGitHub}
-                            className="w-full flex items-center gap-2 border border-gray-300 shadow p-3 rounded-md">
+                            className="w-full flex items-center justify-center gap-2 border border-gray-300 shadow p-3 rounded-md hover:bg-gray-50 transition"
+                        >
                             <FaGithub size={22} />
 
-                            <p className='text-black font-bold'>
+                            <span className="text-black font-bold text-sm sm:text-base">
                                 GitHub দিয়ে চালিয়ে যান
-                            </p>
-                        </div>
+                            </span>
+                        </button>
 
                     </div>
 
                     {/* Sign Up */}
-                    <p className='text-gray-700 text-center'>
+                    <p className="text-gray-700 text-center text-sm sm:text-base">
                         অ্যাকাউন্ট নেই?
 
                         <Link
-                            className='pl-1 text-green-700'
-                            href={'/sign-up'}
+                            className="pl-1 text-green-700 font-medium"
+                            href="/sign-up"
                         >
                             সাইন আপ করুন
                         </Link>
@@ -236,7 +244,7 @@ const SignInPage = () => {
             <div className="flex justify-center">
                 <Link
                     href="/"
-                    className="inline-flex items-center gap-2 text-gray-500"
+                    className="inline-flex items-center gap-2 text-gray-500 text-sm sm:text-base hover:text-green-700 transition"
                 >
                     <BsArrowLeft />
 
