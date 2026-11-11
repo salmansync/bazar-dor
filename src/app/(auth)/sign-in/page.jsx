@@ -1,3 +1,4 @@
+
 'use client'
 
 import { useState } from 'react';
@@ -183,9 +184,10 @@ const SignInPage = () => {
                     >
                         {loading ? "সাইন ইন হচ্ছে..." : "সাইন ইন"}
                     </Button>
-
+                </Form>
+                <div className=''>
                     {/* Divider */}
-                    <div className="flex items-center gap-3 sm:gap-4 w-full">
+                    <div className="my-3 flex items-center gap-3 sm:gap-4 w-full">
                         <div className="flex-1 h-0.5 bg-gray-200"></div>
 
                         <span className="text-gray-600 text-xs sm:text-sm">
@@ -195,10 +197,7 @@ const SignInPage = () => {
                         <div className="flex-1 h-0.5 bg-gray-200"></div>
                     </div>
 
-
-
-                </Form>
-                                {/* Social Login */}
+                    {/* Social Login */}
                     <div className="flex flex-col sm:flex-row gap-2 w-full">
 
                         <button
@@ -228,7 +227,7 @@ const SignInPage = () => {
                     </div>
 
                     {/* Sign Up */}
-                    <p className="text-gray-700 text-center text-sm sm:text-base">
+                    <p className="mt-3 text-gray-700 text-center text-sm sm:text-base">
                         অ্যাকাউন্ট নেই?
 
                         <Link
@@ -238,6 +237,7 @@ const SignInPage = () => {
                             সাইন আপ করুন
                         </Link>
                     </p>
+                </div>
             </div>
 
             {/* Back to Home */}

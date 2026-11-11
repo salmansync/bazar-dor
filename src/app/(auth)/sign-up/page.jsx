@@ -231,9 +231,11 @@ const SignUpPage = () => {
                             {loading ? "অ্যাকাউন্ট তৈরি হচ্ছে..." : "অ্যাকাউন্ট তৈরি করুন"}
                         </Button>
                     </div>
+                </Form>
+                <div>
 
                     {/* Divider */}
-                    <div className="flex items-center gap-3 sm:gap-4 w-full">
+                    <div className="my-3 flex items-center gap-3 sm:gap-4 w-full">
 
                         <div className="flex-1 h-0.5 bg-gray-200"></div>
 
@@ -275,7 +277,7 @@ const SignUpPage = () => {
                     </div>
 
                     {/* Sign In Link */}
-                    <p className="text-gray-700 text-sm sm:text-base text-center w-full">
+                    <p className="mt-3 text-gray-700 text-sm sm:text-base text-center w-full">
                         অ্যাকাউন্ট আছে?
 
                         <Link
@@ -285,9 +287,7 @@ const SignUpPage = () => {
                             সাইন ইন করুন
                         </Link>
                     </p>
-
-                </Form>
-
+                </div>
             </div>
 
             {/* Back to Home */}
